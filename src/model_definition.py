@@ -26,12 +26,12 @@ class Model(nn.Module):
         self.num_conv3_f = 48
         self.num_conv4_f = 64
         self.num_lstm_f = 128
-        self.num_lstm_layers = 1
+        self.num_lstm_layers = 2
         # these layers are imported when you load the pretrained model
-        self.conv1 = nn.Conv2d(1, self.num_conv1_f, kernel_size=3, padding=1)
-        self.conv2 = nn.Conv2d(self.num_conv1_f, self.num_conv2_f, kernel_size=3, padding=1)
-        self.conv3 = nn.Conv2d(self.num_conv2_f, self.num_conv3_f, kernel_size=3, padding=1)
-        self.conv4 = nn.Conv2d(self.num_conv3_f, self.num_conv4_f, kernel_size=3, padding=1)
+        self.conv1 = nn.Conv2d(1, self.num_conv1_f, kernel_size=4, padding=1)
+        self.conv2 = nn.Conv2d(self.num_conv1_f, self.num_conv2_f, kernel_size=4, padding=1)
+        self.conv3 = nn.Conv2d(self.num_conv2_f, self.num_conv3_f, kernel_size=4, padding=1)
+        self.conv4 = nn.Conv2d(self.num_conv3_f, self.num_conv4_f, kernel_size=4, padding=1)
         self.lstm1 = nn.LSTM(input_size=self.num_conv4_f*self.final_height, 
             hidden_size=self.num_lstm_f,
             num_layers=self.num_lstm_layers,
